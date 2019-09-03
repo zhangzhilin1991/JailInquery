@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    android:orientation="vertical">
+
+    <include android:id="@+id/toolbar_head"
+        layout="@layout/toolbar"
+        />
+
+    <LinearLayout
+        android:id="@+id/jail_inquery_connecting_wifi_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_below="@+id/toolbar_head"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/connecting"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/activity_jail_inquerying_anim" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/color_white"
+            android:text="正在连接，请稍等..."
+            android:textSize="24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jail_inquery_failed_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@+id/toolbar_head"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="查询失败，请重试!"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/jail_inquery_failed_retry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_btn"
+            android:padding="10dp"
+            android:text="重试"
+            android:textColor="@color/color_white"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/jail_inquery_failed_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_btn"
+            android:padding="10dp"
+            android:text="取消"
+            android:textColor="@color/color_white"
+            android:textSize="24dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/jail_inquery_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_below="@+id/toolbar_head"
+        android:orientation="vertical"
+        >
+
+        <!-- <EditText
+             android:id="@+id/jail_inquery_et"
+             android:layout_width="500dp"
+             android:layout_height="wrap_content"
+             android:drawableLeft="@mipmap/search"
+             android:drawablePadding="10dp"
+             android:textColorHint="@color/color_gray_search"
+             android:textSize="24dp"
+             android:inputType="number"
+             android:digits="0123456789X"
+             android:singleLine="true"
+             android:imeOptions="actionDone"
+             />
+             -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jail_tips"
+            android:textColor="@color/color_white"
+            android:textSize="18dp"
+            android:layout_gravity="top|left"
+            />
+
+        <com.nyiit.jailinquery.view.CustomKeyboardEditText
+            android:id="@+id/jail_inquery_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/shape_round_corner_rect"
+            android:clickable="true"
+            android:digits="0123456789xX"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:layout_above="@id/baseline"
+            android:focusable="true"
+            android:hint="输入身份证查询"
+            android:lines="1"
+            android:maxLength="18"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="@color/color_white"
+            android:textColorHint="@color/color_white_alpha40"
+            android:textSize="24dp"
+            app:xml="@xml/idcard_keyboard" />
+
+        <View
+            android:id="@+id/baseline"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            />
+
+        <Button
+            android:id="@+id/jail_inquery_tv"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/baseline"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_btn"
+            android:padding="3dp"
+            android:text="查询"
+            android:textColor="@color/color_white"
+            android:textSize="24dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/jail_inquerying_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_head"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/activity_jail_inquerying_anim" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/toolbar_head"
+            android:text="正在查询，请稍等..."
+            android:textColor="@color/color_white"
+            android:textSize="24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jail_inquery_connect_wifi_failed_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar_head"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="连接失败，请重试!"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/jail_inquery_connect_failed_failed_retry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_btn"
+            android:padding="10dp"
+            android:text="重试"
+            android:textColor="@color/color_white"
+            android:textSize="24dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jail_inquery_result_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_head"
+        android:layout_above="@+id/jail_chat_fl"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/jail_inquery_result_basic_info_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_round_corner_rect"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_basic_info_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="犯人基本信息"
+                        android:textColor="@color/color_white_alpha60"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_basic_info_center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_name_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center"
+                        android:text="姓名："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintRight_toLeftOf="@id/jail_inquery_result_basic_info_center"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_basic_info_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_name_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_name_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_id_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="编号："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_name_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_name_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_id_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_id_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_id_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_age_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="年龄："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_name_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_id_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_age_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_age_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_age_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_account_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="账户余额："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_age_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_age_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_account_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_account_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_account_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_crime_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="罪名："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_account_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_account_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_crime_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_crime_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_crime_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_priosn_term_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="刑期："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_crime_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_crime_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_priosn_term_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_priosn_term_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_priosn_term_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_remain_punishment_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="余刑："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_priosn_term_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_priosn_term_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_remain_punishment_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_remain_punishment_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_remain_punishment_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_enter_date_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="入监日期："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_remain_punishment_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_remain_punishment_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_enter_date_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_enter_date_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_enter_date_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_release_date_tag_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="刑满日期："
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/jail_inquery_result_enter_date_tag_tv"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_enter_date_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_release_date_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toRightOf="@id/jail_inquery_result_release_date_tag_tv"
+                        app:layout_constraintTop_toTopOf="@id/jail_inquery_result_release_date_tag_tv" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/jail_inquery_result_penaty_info_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_round_corner_rect"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_penalty_info_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="犯人加减刑信息"
+                        android:textColor="@color/color_white_alpha60"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_penalty_tag_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="加减刑日期："
+                        android:textColor="@color/color_white_alpha60"
+                        android:textSize="18dp"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_info_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_info_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_penalty_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="无"
+                        android:gravity="center_vertical"
+                        android:padding="5dp"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_tag_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_penalty_type_tag_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="加减刑情况："
+                        android:textColor="@color/color_white_alpha60"
+                        android:textSize="18dp"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_info_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_penalty_type_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_type_tag_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_type_tag_tv" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/jail_inquery_result_award_info_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_round_corner_rect"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_award_info_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="犯人奖励信息"
+                        android:textColor="@color/color_white_alpha60"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_award_date_tag_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="奖励日期："
+                        android:textColor="@color/color_white_alpha60"
+                        android:textSize="18dp"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_info_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_info_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_award_date_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/color_white"
+                        android:singleLine="false"
+                        android:textSize="16dp"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_date_tag_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_date_tag_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_award_type_tag_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="奖励类型："
+                        android:textColor="@color/color_white_alpha60"
+                        android:textSize="18dp"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_info_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_date_tv" />
+
+                    <TextView
+                        android:id="@+id/jail_inquery_result_award_type_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="无"
+                        android:textColor="@color/color_white"
+                        android:textSize="16dp"
+                        android:singleLine="false"
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_type_tag_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_type_tag_tv" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/jail_inquery_result_back_btn"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/selector_btn"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@color/color_white"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/jail_chat_fl"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/jail_listening_anim_iv"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:src="@drawable/anim_adr_speak" />
+
+    <TextView
+        android:id="@+id/jail_chat"
+        android:textSize="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="top|center_horizontal"
+        android:textColor="@color/color_white"
+        android:gravity="center_horizontal|top"
+        android:layout_marginBottom="10dp"
+        android:background="@null"
+        />
+
+    </FrameLayout>
+
+</RelativeLayout>

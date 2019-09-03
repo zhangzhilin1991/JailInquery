@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.preference.PreferenceCategory android:title="WIFI网络设置">
+
+        <android.support.v7.preference.EditTextPreference
+            android:defaultValue="TP-LINK_74B91"
+            android:dialogMessage="WIFI网络名设置"
+            android:key="@string/wifi_ssid_key"
+            android:summary="WIFI网络名设置"
+            android:title="WIFI网络名" />
+
+        <android.support.v7.preference.EditTextPreference
+            android:defaultValue="njupt12345"
+            android:dialogMessage="WIFI网络密码设置"
+            android:key="@string/wifi_pwd_key"
+            android:summary="WIFI网络密码设置"
+            android:title="WIFI网络密码" />
+
+    </android.support.v7.preference.PreferenceCategory>
+
+    <android.support.v7.preference.PreferenceCategory android:title="监狱信息设置">
+
+        <android.support.v7.preference.EditTextPreference
+            android:defaultValue="3205"
+            android:dialogMessage="监狱代码设置"
+            android:key="@string/jail_code_key"
+            android:summary="监狱代码设置"
+            android:title="监狱代码设置" />
+
+    </android.support.v7.preference.PreferenceCategory>
+</PreferenceScreen>

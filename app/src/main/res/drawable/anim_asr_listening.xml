@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item
+        android:drawable="@mipmap/listen_0"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_1"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_2"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_3"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_4"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_5"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_6"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_7"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_8"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_9"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_10"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_11"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_12"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_13"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_14"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_15"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_16"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_17"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_18"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_19"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_20"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_21"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_22"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_23"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_24"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_25"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_26"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_27"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_28"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_29"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_30"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_31"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_32"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_33"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_34"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_35"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_36"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_37"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_38"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_39"
+        android:duration="50" />
+
+    <item
+        android:drawable="@mipmap/listen_40"
+        android:duration="50" />
+
+</animation-list>

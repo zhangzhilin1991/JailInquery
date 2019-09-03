@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1aa4ec</color>
+    <color name="colorPrimaryDark">#0e76ac</color>
+    <color name="colorAccent">#1296db</color>
+
+    <color name="color_black">#000000</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_white_alpha40">#66ffffff</color>
+    <color name="color_white_alpha60">#99FFFFFF</color>
+    <color name="color_dimgray">#CBC9C5C5</color>
+    <color name="color_gray_alpha40">#668A8A8A</color>
+    <color name="color_gray_alpha20">#338A8A8A</color>
+    <color name="color_transparent">#00000000</color>
+    <color name="color_transparent_alpha10">#1A000000</color>
+    <color name="color_transparent_alpha20">#33000000</color>
+    <color name="color_transparent_alpha40">#66000000</color>
+    <color name="color_transparent_alpha60">#99000000</color>
+    <color name="color_transparent_alpha80">#cc000000</color>
+    <color name="color_gray_search">#868686</color>
+    <color name="color_float_btn_background_alpha75">#bf2b5d98</color>
+    <color name="color_float_btn_background_alpha30">#4d2b5d98</color>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item
+        android:drawable="@mipmap/speak_0"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_1"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_2"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_3"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_4"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_5"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_6"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_7"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_8"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_9"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_10"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_11"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_12"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_13"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_14"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_15"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_16"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_17"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_18"
+        android:duration="100" />
+
+    <item
+        android:drawable="@mipmap/speak_19"
+        android:duration="100" />
+
+</animation-list>

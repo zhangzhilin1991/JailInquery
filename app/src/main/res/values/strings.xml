@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">JailInquery</string>
+    <string name="wifi_ssid_key">WIFI_SSID_KEY</string>
+    <string name="wifi_pwd_key">WIFI_PWD_KEY</string>
+    <string name="jail_code_key">JAIL_CODE_KEY</string>
+
+    <string name="keyboard_delete">删除</string>
+    <string name="float_button_title">询</string>
+
+    <string name="jail_inquery">服刑人员查询</string>
+    
+    <string name="jail_tips">\t\t提示\n
+        \t\t\t\t(1)语音或手动输入身份证号码\n
+        \t\t\t\t(2)说“取消”，删除已输入的身份证号\n
+        \t\t\t\t(3)说“确认”，开始查询\n
+        \t\t\t\t(4)说“返回”，退出到查询界面\n
+        \t\t\t\t(5)说“退出”，退出应用\n
+        \t\t\t\t(6)说“停”，停止犯人信息播报\n
+    </string>
+</resources>
