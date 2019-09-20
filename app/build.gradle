@@ -6,7 +6,7 @@ android {
         applicationId "com.nyiit.jailinquery"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
+        versionCode 4
         versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -18,7 +18,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
@@ -32,12 +32,12 @@ android {
     applicationVariants.all {
         variant ->
             variant.outputs.all {
-                //if (buildType.name == 'release'){
+                if (buildType.name == 'release'){
                     outputFileName = "JailInquery_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
-                //}
-                //if (buildType.name == 'debug'){
-                //    outputFileName = "JailInquery_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
-                //}
+                }
+                if (buildType.name == 'debug'){
+                    outputFileName = "JailInquery_v" + defaultConfig.versionName + "_" + new Date().format("yyyy-MM-dd") + "_" + buildType.name + ".apk"
+                }
             }
     }
 }

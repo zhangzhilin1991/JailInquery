@@ -1,5 +1,7 @@
 package com.nyiit.jailinquery.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 public class JsonBean {
 
     /**
@@ -7,7 +9,9 @@ public class JsonBean {
      * data : [{"zf_zhye":"0","zf_xq":"无期","zf_xmrq":"2010-09-28","zf_yx":"","zf_rjrq":"2001-10-15","zf_xm":"张步军","zf_zm":"故意伤害罪","zf_bh":"320100001245","zf_nl":"48"}]
      */
 
+    @SerializedName("count")
     private String count;
+    @SerializedName("data")
     private String data;
 
     public String getCount() {

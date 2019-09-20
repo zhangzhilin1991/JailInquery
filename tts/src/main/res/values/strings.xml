@@ -3,7 +3,7 @@
 
     <string name="app_name">离线语音示例v5+</string>
     <!-- 请替换成在语音云官网申请的appid -->
-    <string name="app_id">5d490e13</string>
+    <string name="app_id">5d75b24c</string>
     <string name="example_explain">本示例为离线语音功能，提供语音听写、语法识别、语义理解和语音合成等代码样例，旨在让用户能够依据该示例快速开发出基于语音接口的应用程序。</string>
     <string name="text_tts_source"> 身份证号码：1332482389492399
                                     犯人：张大三

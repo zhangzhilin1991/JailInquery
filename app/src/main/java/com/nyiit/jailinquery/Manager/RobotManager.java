@@ -355,13 +355,16 @@ public class RobotManager {
             // reqText : 语音识别内容
             // reqParam : 语音指令参数
 
-
             try {
                 LogUtil.d(TAG, "onSendRequest(): reqType = " + reqType + ", reqText = " + reqText
                         + ", reqParam = " + reqParam);
 
                 if (reqType.equals("req_speech_wakeup")) {
                     skillApi.setRecognizeMode(true);
+                    //stopTTS();
+                    if (mRobotListener != null) {
+                        mRobotListener.onExit();
+                    }
                     return true;
                 }
                 ReqParam reqParamBean = new Gson().fromJson(reqParam, ReqParam.class);

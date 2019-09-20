@@ -224,7 +224,7 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
     ImageView jailListeningAnimIv;
     private volatile boolean isInquery = false;
     private StringBuilder inqueryResultStr;
-    private StringBuilder inqueryIdNumStr = new StringBuilder(18);
+    private StringBuilder inqueryIdNumStr = new StringBuilder();
     private int inqstate = STATE_IDLE;
     //private String searchTextStr = null;
     private FaceRecoViewModel model;
@@ -965,6 +965,8 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
                     activity.inqstate = STATE_IDLE;
                     activity.isInquery = false;
                     //activity.robotManager.stopTTS();
+                    activity.inqueryIdNumStr.delete(0, activity.inqueryIdNumStr.length());
+                    activity.jailInqueryEt.setText("");
                     activity.showInqueryView();
                     activity.stopConnectingTimer();
                     //playTTS
@@ -1043,16 +1045,20 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
                     }
                     if (msg.obj != null) {
                         String newText = (String) msg.obj;
-                        if (newText.length() > 18) {
-                            newText = newText.substring(0, 18);
-                        }
-                        activity.inqueryIdNumStr.delete(0, 18);
+                        activity.inqueryIdNumStr.delete(0, activity.inqueryIdNumStr.length());
                         activity.inqueryIdNumStr.append(activity.jailInqueryEt.getText());
-                        int totalLength = newText.length() + activity.inqueryIdNumStr.length();
-                        if (totalLength > 18) {
-                            activity.inqueryIdNumStr.delete(0, totalLength - 18);
+                        if (activity.inqueryIdNumStr.length() >= 18) {
+                            activity.robotManager.playTTS("请先删除号码后，再输入");
+                            return;
                         }
+
                         activity.inqueryIdNumStr.append(newText);
+                        LogUtil.d(TAG, "MSG_IDCARD_ACQUIRED before inqueryIdNumStr : " + activity.inqueryIdNumStr);
+                        if (activity.inqueryIdNumStr.length() > 18) {
+                            activity.inqueryIdNumStr.delete(18, activity.inqueryIdNumStr.length());
+                        }
+                        LogUtil.d(TAG, "MSG_IDCARD_ACQUIRED after inqueryIdNumStr : " + activity.inqueryIdNumStr);
+
                         activity.jailInqueryEt.setText(activity.inqueryIdNumStr);
                         if (activity.inqueryIdNumStr.length() == 18) {
                             activity.robotManager.playTTS("请确认");
