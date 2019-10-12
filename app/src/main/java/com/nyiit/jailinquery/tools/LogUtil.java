@@ -19,8 +19,7 @@ public class LogUtil {
      * <p/>
      * 注意：测试环境为true，线上环境为false
      */
-    public static boolean isDebug = true;
-        //BuildConfig.DEBUG;
+    public static boolean isDebug = BuildConfig.DEBUG;
 
     public LogUtil() {
         throw new UnsupportedOperationException("can not be instantiated");

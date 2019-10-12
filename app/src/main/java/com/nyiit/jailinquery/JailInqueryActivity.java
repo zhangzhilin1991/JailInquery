@@ -36,9 +36,7 @@ import android.widget.TextView;
 import com.nyiit.jailinquery.Manager.InqueryManager;
 import com.nyiit.jailinquery.Manager.RobotManager;
 import com.nyiit.jailinquery.Manager.WifiConfigManager;
-import com.nyiit.jailinquery.bean.PrisonerAwardInfo;
-import com.nyiit.jailinquery.bean.PrisonerInfo;
-import com.nyiit.jailinquery.bean.PrisonerPenaltyInfo;
+import com.nyiit.jailinquery.bean.PrisonerInfoBean;
 import com.nyiit.jailinquery.bean.WifiSetting;
 import com.nyiit.jailinquery.receiver.NetWorkChangedReceiver;
 import com.nyiit.jailinquery.tools.ConfigRespository;
@@ -186,26 +184,26 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
     ConstraintLayout jailInqueryResultBasicInfoCl;
     @BindView(R.id.jail_inquery_result_penalty_info_tv)
     TextView jailInqueryResultPenaltyInfoTv;
-    @BindView(R.id.jail_inquery_result_penalty_tag_tv)
-    TextView jailInqueryResultPenaltyTagTv;
+    //@BindView(R.id.jail_inquery_result_penalty_tag_tv)
+    //TextView jailInqueryResultPenaltyTagTv;
     @BindView(R.id.jail_inquery_result_penalty_tv)
     TextView jailInqueryResultPenaltyTv;
-    @BindView(R.id.jail_inquery_result_penalty_type_tag_tv)
-    TextView jailInqueryResultPenaltyTypeTagTv;
-    @BindView(R.id.jail_inquery_result_penalty_type_tv)
-    TextView jailInqueryResultPenaltyTypeTv;
+    //@BindView(R.id.jail_inquery_result_penalty_type_tag_tv)
+    //TextView jailInqueryResultPenaltyTypeTagTv;
+    //@BindView(R.id.jail_inquery_result_penalty_type_tv)
+    //TextView jailInqueryResultPenaltyTypeTv;
     @BindView(R.id.jail_inquery_result_penaty_info_cl)
     ConstraintLayout jailInqueryResultPenatyInfoCl;
     @BindView(R.id.jail_inquery_result_award_info_tv)
-    TextView jailInqueryResultAwardInfoTv;
-    @BindView(R.id.jail_inquery_result_award_date_tag_tv)
+    //TextView jailInqueryResultAwardInfoTv;
+    //@BindView(R.id.jail_inquery_result_award_date_tag_tv)
     TextView jailInqueryResultAwardDateTagTv;
     @BindView(R.id.jail_inquery_result_award_date_tv)
     TextView jailInqueryResultAwardDateTv;
-    @BindView(R.id.jail_inquery_result_award_type_tag_tv)
-    TextView jailInqueryResultAwardTypeTagTv;
-    @BindView(R.id.jail_inquery_result_award_type_tv)
-    TextView jailInqueryResultAwardTypeTv;
+    //@BindView(R.id.jail_inquery_result_award_type_tag_tv)
+    //TextView jailInqueryResultAwardTypeTagTv;
+    //@BindView(R.id.jail_inquery_result_award_type_tv)
+    //TextView jailInqueryResultAwardTypeTv;
     @BindView(R.id.jail_inquery_result_award_info_cl)
     ConstraintLayout jailInqueryResultAwardInfoCl;
     @BindView(R.id.jail_inquery_connecting_wifi_ll)
@@ -672,8 +670,8 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
         //inquery
         inqueryManager.startInquery(jailCode, searchText, wifiSetting, new InqueryManager.InqueryingCallBack() {
             @Override
-            public void onSuccess(final PrisonerInfo prisonerInfo, final PrisonerPenaltyInfo prisonerPenaltyInfo
-                    , final PrisonerAwardInfo prisonerAwardInfo) {
+            public void onSuccess(final PrisonerInfoBean.DataBean prisonerInfo,final String prisonerPenaltyInfo
+                    ,final String prisonerAwardInfo) {
                 LogUtil.d(TAG, "startInquery() onSuccess: " + prisonerInfo);
                 runOnUiThread(new Runnable() {
                     @Override
@@ -708,8 +706,8 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
         });
     }
 
-    private void updatePrisonerInfo(PrisonerInfo prisonerInfo, PrisonerPenaltyInfo prisonerPenaltyInfo
-            , PrisonerAwardInfo prisonerAwardInfo) {
+    private void updatePrisonerInfo(PrisonerInfoBean.DataBean prisonerInfo, String prisonerPenaltyInfo
+            , String prisonerAwardInfo) {
         LogUtil.d(TAG, "updatePrisonerInfo()");
         inqueryResultStr = new StringBuilder();
         if (prisonerInfo != null) {
@@ -723,18 +721,20 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
             jailInqueryResultEnterDateTv.setText(prisonerInfo.getZf_rjrq());
             jailInqueryResultReleaseDateTv.setText(prisonerInfo.getZf_xmrq());
 
-            inqueryResultStr.append(prisonerInfo.toString());
+            inqueryResultStr.append("犯人基本信息" + prisonerInfo.toString());
         }
-        if (prisonerPenaltyInfo != null) {
-            jailInqueryResultPenaltyTypeTv.setText(prisonerPenaltyInfo.getZf_bdlx());
-            jailInqueryResultPenaltyTv.setText(prisonerPenaltyInfo.getZf_bdrq());
-            inqueryResultStr.append(prisonerPenaltyInfo.toString());
+        if (prisonerPenaltyInfo != null) { //list
+            //jailInqueryResultPenaltyTypeTv.setText(prisonerPenaltyInfo.getZf_bdlx());
+            //jailInqueryResultPenaltyTv.setText(prisonerPenaltyInfo.getZf_bdrq());
+            jailInqueryResultPenaltyTv.setText(prisonerPenaltyInfo);
+            inqueryResultStr.append("犯人加减刑信息" + prisonerPenaltyInfo.toString());
         }
-        if (prisonerAwardInfo != null) {
+        if (prisonerAwardInfo != null) { //list
             //JailInquery
-            jailInqueryResultAwardDateTv.setText(prisonerAwardInfo.getZf_hjrq());
-            jailInqueryResultAwardTypeTv.setText(prisonerAwardInfo.getZf_hjlx());
-            inqueryResultStr.append(prisonerAwardInfo.toString());
+            //jailInqueryResultAwardDateTv.setText(prisonerAwardInfo.getZf_hjrq());
+            //jailInqueryResultAwardTypeTv.setText(prisonerAwardInfo.getZf_hjlx());
+            jailInqueryResultAwardDateTv.setText(prisonerAwardInfo);
+            inqueryResultStr.append("犯人奖励信息" + prisonerAwardInfo.toString());
         }
     }
 
@@ -753,6 +753,10 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
 
         //ttsManager.createSynthesizer(this);
         addEditTextListener();
+
+        if (TEST) {
+            inqueryManager.setTest(true);
+        }
     }
 
     private void unInit() {
@@ -860,7 +864,7 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
     }
 
     //假数据
-    private void setFakeData() {
+    /*private void setFakeData() {
         LogUtil.d(TAG, "setFakeData()");
         PrisonerInfo prisonerInfo = new PrisonerInfo(
                 "张小峰",
@@ -898,6 +902,7 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
 
         updatePrisonerInfo(prisonerInfo, prisonerPenaltyInfo, prisonerAwardInfo);
     }
+    */
 
     private void addEditTextListener() {
         jailInqueryEt.addTextChangedListener(new TextWatcher() {
@@ -985,12 +990,12 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
                     //mhandler.obtainMessage(MSG_SHOW_CONNECTING_VIEW).sendToTarget();
                     //clickCount = 0;
                     //
-                    if (TEST) {
+                    //if (TEST) {
                         //
-                        Message message = activity.mhandler.obtainMessage(MSG_SHOW_INQUERY_SUCCESS_FAKE_VIEW);
-                        activity.mhandler.sendMessageDelayed(message, 3 * 1000);
-                        return;
-                    }
+                        //Message message = activity.mhandler.obtainMessage(MSG_SHOW_INQUERY_SUCCESS_FAKE_VIEW);
+                        //activity.mhandler.sendMessageDelayed(message, 3 * 1000);
+                        //return;
+                    //}
                     activity.startInquery(activity.JAIL_CODE, activity.inqueryIdNumStr.toString(), new WifiSetting(activity.WIFI_SSID, activity.WIFI_PWD));
 
                     break;
@@ -999,11 +1004,11 @@ public class JailInqueryActivity extends BaseActivity implements NetWorkChangedR
                     //activity.isInquery = false;
                     //activity.finish();
                     break;
-                case MSG_SHOW_INQUERY_SUCCESS_FAKE_VIEW:
-                    activity.mhandler.removeMessages(MSG_INQUERYING_TIMEOUT);
-                    activity.setFakeData();
-                    activity.mhandler.obtainMessage(MSG_INQUERY_SUCCESS).sendToTarget();
-                    break;
+                //case MSG_SHOW_INQUERY_SUCCESS_FAKE_VIEW:
+                //    activity.mhandler.removeMessages(MSG_INQUERYING_TIMEOUT);
+                    //activity.setFakeData();
+                //    activity.mhandler.obtainMessage(MSG_INQUERY_SUCCESS).sendToTarget();
+                //    break;
                 case MSG_SHOW_INQUERY_SUCCESS_VIEW:
                     activity.showInquerySuccessView();
                     //activity.set4GNetWorkEnabled(true);

@@ -483,7 +483,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <!--<TextView
                         android:id="@+id/jail_inquery_result_penalty_tag_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -492,6 +492,7 @@
                         android:textSize="18dp"
                         app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_info_tv"
                         app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_info_tv" />
+                        -->
 
                     <TextView
                         android:id="@+id/jail_inquery_result_penalty_tv"
@@ -502,10 +503,10 @@
                         android:padding="5dp"
                         android:textColor="@color/color_white"
                         android:textSize="16dp"
-                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_tag_tv"
-                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_tag_tv" />
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_info_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_info_tv" />
 
-                    <TextView
+                    <!--<TextView
                         android:id="@+id/jail_inquery_result_penalty_type_tag_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -525,6 +526,7 @@
                         android:textSize="16dp"
                         app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_penalty_type_tag_tv"
                         app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_penalty_type_tag_tv" />
+                        -->
 
                 </android.support.constraint.ConstraintLayout>
 
@@ -548,7 +550,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <!--<TextView
                         android:id="@+id/jail_inquery_result_award_date_tag_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -557,6 +559,7 @@
                         android:textSize="18dp"
                         app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_info_tv"
                         app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_info_tv" />
+                        -->
 
                     <TextView
                         android:id="@+id/jail_inquery_result_award_date_tv"
@@ -566,10 +569,10 @@
                         android:textColor="@color/color_white"
                         android:singleLine="false"
                         android:textSize="16dp"
-                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_date_tag_tv"
-                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_date_tag_tv" />
+                        app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_info_tv"
+                        app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_info_tv" />
 
-                    <TextView
+                    <!--<TextView
                         android:id="@+id/jail_inquery_result_award_type_tag_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -590,6 +593,7 @@
                         android:singleLine="false"
                         app:layout_constraintLeft_toLeftOf="@id/jail_inquery_result_award_type_tag_tv"
                         app:layout_constraintTop_toBottomOf="@id/jail_inquery_result_award_type_tag_tv" />
+                        -->
 
                 </android.support.constraint.ConstraintLayout>
 

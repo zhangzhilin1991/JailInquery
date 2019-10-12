@@ -39,5 +39,5 @@
 -keep class org.kxml2.** { *; }
 -keep class org.xmlpull.** { *;}
 
--keep class com.nyiit.jailinquery.bean.JsonBean{private *;}
+-keep class com.nyiit.jailinquery.bean.PrisonerInfoBean{private *;}
 
